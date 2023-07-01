@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #fef7e6;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    font-family: Roboto, sans-serif;
+}
