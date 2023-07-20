@@ -1,11 +1,12 @@
 import { useState } from 'react'
-
 import { QuestionAnswer } from './QuestionAnswer'
 
 import { Button } from './Button'
 import { Result } from './Result'
+import { ProgressBar } from './ProgressBar'
 
 import S from './styles.module.css'
+
 
 const QUESTIONS = [
   {
@@ -41,6 +42,8 @@ export function Quiz () {
     const [isTakingQuiz, setIsTakingQuiz] = useState(true)
 
     const quizSize = QUESTIONS.length
+    const currenteQuestionNumber = currentQuestionIndex + 1
+
 
     const handleAnswerQuestion = (event, question, answer) => {
         if (isCurrentQuestionAnswered) {
@@ -59,7 +62,7 @@ export function Quiz () {
     }
 
     const handleNextQuestion = () => {
-        if (currentQuestionIndex + 1 < quizSize) {
+        if (currenteQuestionNumber < quizSize) {
             setCurrentQuestionIndex(index => index + 1)
         } else {
             setIsTakingQuiz(false)
@@ -81,8 +84,12 @@ export function Quiz () {
             <div className={S.card}>
                {isTakingQuiz ? (
                     <div className={S.quiz}>
+                        <ProgressBar size={quizSize} currentStep={currenteQuestionNumber} />
+
                     <header className={S.quizHeader}>
-                        <span className={S.questionCount}>PERGUNTA 1/04</span>
+                        <span className={S.questionCount}>
+                            PERGUNTA {currenteQuestionNumber} / {quizSize} 
+                        </span>
                         <p className={S.question}>
                             {currentQuestion.question}
                         </p>

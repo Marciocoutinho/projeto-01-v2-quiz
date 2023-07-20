@@ -1,0 +1,18 @@
+.container {
+    width: 100%;
+}
+
+.steps {
+    display: grid;
+    gap: 1rem;
+}
+
+.step {
+height: 0.375rem;
+border-radius: 4px;
+background-color: #eee;
+}
+
+.active {
+    background-color: #ffb900;
+}
